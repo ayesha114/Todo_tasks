@@ -1,0 +1,414 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'tasks:index' %}">
+            <img src="{% static 'images/images.png' %}" alt="Logo" class="mr-2" style="border-radius: 50%; width: 25px; height: 25px;">
+            <span class="font-weight-bold text-dark">Todoist</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-dark" href="{% url 'tasks:index' %}" style="padding-left: 20px; padding-right: 20px; transition: background-color 0.3s;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="{% url 'tasks:task_list' %}" style="padding-left: 20px; padding-right: 20px; transition: background-color 0.3s;">Task List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="{% url 'tasks:add_task' %}" style="padding-left: 20px; padding-right: 20px; transition: background-color 0.3s;">Add Tasks</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+    
+    
+    <!-- Custom Header -->
+    <header class="header text-white text-center" id="main-header">
+        <div class="overlay">
+            <h1>Welcome to Todoist</h1>
+            <p>Your ultimate task management solution.</p>
+            <a href="#" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+    </header>
+
+<!-- Features -->
+<section class="features-section py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Unparalleled Features</h2>
+        <p class="text-center mb-4">Experience state-of-the-art functionalities designed to streamline your workflow and enhance collaboration.</p>
+        <div class="row">
+            <!-- Feature 1 -->
+            <div class="col-md-4 mb-4 d-flex">
+                <div class="feature-card text-center shadow p-4 bg-white flex-fill">
+                    <img src="{% static 'images/img1.jpg' %}" alt="Feature 1" class="img-fluid mb-3 feature-icon">
+                    <h4>Organize Tasks</h4>
+                    <p>With our intuitive drag-and-drop interface, efficiently manage and organize your daily tasks, set priorities, and track progress.</p>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4 mb-4 d-flex">
+                <div class="feature-card text-center shadow p-4 bg-white flex-fill">
+                    <img src="{% static 'images/img2.jpg' %}" alt="Feature 2" class="img-fluid mb-3 feature-icon">
+                    <h4>Collaborate</h4>
+                    <p>Invite members, assign roles, and work together in real-time. Our platform supports seamless collaboration, ensuring everyone is on the same page.</p>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4 mb-4 d-flex">
+                <div class="feature-card text-center shadow p-4 bg-white flex-fill">
+                    <img src="{% static 'images/img3.jpg' %}" alt="Feature 3" class="img-fluid mb-3 feature-icon">
+                    <h4>Analytics</h4>
+                    <p>Dive deep into your tasks with advanced analytics. From completion rates to team performance, gain actionable insights for continuous improvement.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="collaboration-section">
+    <div class="overlay"></div>
+    <div class="collab-content">
+        <div class="profile-images">
+            <img src="{% static 'images/img8.jpg' %}" alt="Main Profile" class="main-profile">
+        </div>
+        <div class="collab-text">
+            <h2>TOODLEDO CONNECTS PEOPLE AND TEAMS</h2>
+            <p>Easily share tasks, outlines, and lists with your collaborators. You can share individual folders, reassign tasks, and track each other's progress.</p>
+            <a href="https://wetransfer.com/" class="learn-more-btn">Learn more about Collaboration</a>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- How it Works -->
+<section class="how-it-works-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">How It Works</h2>
+        <div class="row">
+            <!-- Step 1 -->
+            <div class="col-md-3 text-center mb-4 step-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="mb-3">
+                    <span class="circle">1</span>
+                </div>
+                <h4>Create Account</h4>
+                <p>Sign up easily with your email.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="col-md-3 text-center mb-4 step-box" data-aos="fade-up" data-aos-delay="200">
+                <div class="mb-3">
+                    <span class="circle">2</span>
+                </div>
+                <h4>Add Tasks</h4>
+                <p>Begin by adding your daily tasks.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="col-md-3 text-center mb-4 step-box" data-aos="fade-up" data-aos-delay="300">
+                <div class="mb-3">
+                    <span class="circle">3</span>
+                </div>
+                <h4>Collaborate</h4>
+                <p>Invite team members and collaborate.</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="col-md-3 text-center mb-4 step-box" data-aos="fade-up" data-aos-delay="400">
+                <div class="mb-3">
+                    <span class="circle">4</span>
+                </div>
+                <h4>Analyze & Improve</h4>
+                <p>Review analytics and enhance productivity.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="about-section py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">About Us</h2>
+        <div class="about-grid">
+            <div class="about-image" id="animatedImage">
+            </div>
+            <div class="about-text">
+                <div class="about-item">
+                    <h4>Our Mission</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacinia malesuada libero, ac viverra massa rutrum vitae. Our dedicated team ensures that every project is executed with precision and care.</p>
+                </div>
+                <div class="about-item">
+                    <h4>Our Vision</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper est eget tempor ornare. We aim to be the global leaders in providing top-notch solutions for all your needs.</p>
+                </div>
+                <div class="about-item">
+                    <h4>Values</h4>
+                    <p>We believe in integrity, innovation, and the importance of always putting our clients first.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Contact Us Section -->
+<section class="contact-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Contact Us</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Your message here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</section>
+
+<section class="testimonials-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">What Do Our Customers Say?</h2>
+        <button class="scroll-left" onclick="scrollReviews('left')">←</button>
+        <div class="reviews-slider">
+            <!-- Example Review 1 -->
+            <div class="review">
+                <div class="review-icon">DG</div>
+                <div class="review-name">Dax Campbell</div>
+                <div class="review-date">2023-08-26</div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Great company very professional and great prices...</div>
+            </div>
+            <!-- Example Review 2 -->
+            <div class="review">
+                <div class="review-icon">DG</div>
+                <div class="review-name">Dax Campbell</div>
+                <div class="review-date">2023-08-26</div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Great company very professional and great prices...</div>
+            </div>
+            <!-- Example Review 2 -->
+            <div class="review">
+                <div class="review-icon">DG</div>
+                <div class="review-name">Dax Campbell</div>
+                <div class="review-date">2023-08-26</div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Great company very professional and great prices...</div>
+            </div>
+            <div class="review">
+                <div class="review-icon">DG</div>
+                <div class="review-name">Dax Campbell</div>
+                <div class="review-date">2023-08-26</div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Great company very professional and great prices...</div>
+            </div>
+            <div class="review">
+                <div class="review-icon">DG</div>
+                <div class="review-name">Dax Campbell</div>
+                <div class="review-date">2023-08-26</div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Great company very professional and great prices...</div>
+            </div>
+            <div class="review">
+                <div class="review-icon">DG</div>
+                <div class="review-name">Dax Campbell</div>
+                <div class="review-date">2023-08-26</div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Great company very professional and great prices...</div>
+            </div>
+            <!-- ... Add more reviews here ... -->
+        </div>
+        <button class="scroll-right" onclick="scrollReviews('right')">→</button>
+    </div>
+</section>
+
+
+<footer class="footer bg-dark text-white py-4">
+    <div class="container">
+        <!-- Main Info -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <h4>Todoist</h4>
+                <p>Your task management partner.</p>
+            </div>
+            <!-- Quick Links -->
+            <div class="col-md-4">
+                <h6>Quick Links</h6>
+                <ul class="list-unstyled">
+                    <li style="padding: 5px;"><a href="{% url 'tasks:index' %}" class="text-white">Home</a></li>
+                    <li style="padding: 5px;"><a href="{% url 'tasks:task_list' %}" class="text-white">Task List</a></li>
+                    <li style="padding: 5px;"><a href="#" class="text-white">Pricing</a></li>
+                    <li style="padding: 5px;"><a href="#" class="text-white">Contact</a></li>
+                </ul>
+            </div>
+<!-- Contact Info -->
+<div class="col-md-4">
+    <h6>Contact</h6>
+    <div class="contact-info">
+        <p>
+            <i class="fas fa-envelope mr-2"></i> <!-- Email icon -->
+            <a href="mailto:info@todoist.com" class="text-white">info@todoist.com</a>
+        </p>
+        <p>
+            <i class="fas fa-phone-alt mr-2"></i> <!-- Phone icon -->
+            <a href="tel:+1234567890" class="text-white">+1 234 567 890</a>
+        </p>
+    </div>
+</div>
+        <!-- Social and Legal -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center"> <!-- You can adjust the 'col-md-6' depending on the width you desire for the centered section -->
+                    <ul class="list-inline mb-3">
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#" class="text-white">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white">Terms of Service</a></li>
+                    </ul>
+                    <p class="mt-3">&copy; 2023 Todoist, All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+</footer>
+
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const steps = document.querySelectorAll(".col-md-3");
+    steps.forEach(step => {
+        step.addEventListener("mouseenter", function() {
+            this.querySelector(".circle").style.backgroundColor = "#0056b3"; // Darkened Bootstrap primary color
+            this.querySelector("h4").style.color = "#007BFF"; // Bootstrap primary color
+        });
+        
+        step.addEventListener("mouseleave", function() {
+            this.querySelector(".circle").style.backgroundColor = "#007BFF"; // Bootstrap primary color
+            this.querySelector("h4").style.color = "#000"; // Default color
+        });
+    });
+});
+AOS.init({
+    duration: 1000
+});
+window.addEventListener("DOMContentLoaded", (event) => {
+    const animatedImage = document.getElementById("animatedImage");
+    const aboutText = document.querySelector(".about-text");
+    
+    animatedImage.style.opacity = "0";
+    setTimeout(() => {
+        animatedImage.style.transition = "opacity 1.5s ease-in-out";
+        animatedImage.style.opacity = "1";
+    }, 100);
+
+    // Animating the text section
+    setTimeout(() => {
+        aboutText.style.opacity = "1";
+        aboutText.style.transform = "translateY(0)";
+    }, 500);
+});
+
+
+//reviews animation
+
+document.querySelector('.scroll-left').addEventListener('click', function() {
+    document.querySelector('.reviews-slider').scrollBy({
+        top: 0,
+        left: -window.innerWidth * 0.33, // Adjusts the scroll by one-third of the window's width
+        behavior: 'smooth'
+    });
+});
+
+document.querySelector('.scroll-right').addEventListener('click', function() {
+    document.querySelector('.reviews-slider').scrollBy({
+        top: 0,
+        left: window.innerWidth * 0.33,
+        behavior: 'smooth'
+    });
+});
+function scrollReviews(direction) {
+    var slider = document.querySelector('.reviews-slider');
+    var width = slider.offsetWidth;
+
+    if(direction === 'left') {
+        slider.scrollBy({
+            left: -width * 0.33, // Scrolls left by one-third of the slider's width
+            behavior: 'smooth'
+        });
+    } else {
+        slider.scrollBy({
+            left: width * 0.33,  // Scrolls right by one-third of the slider's width
+            behavior: 'smooth'
+        });
+    }
+}
+//footer animation
+$(document).scroll(function() {
+    var yOffset = window.pageYOffset;
+    var footerOffsetTop = $('.footer').offset().top;
+    
+    if(yOffset + $(window).height() > footerOffsetTop) {
+        $('.footer').css('animation-play-state', 'running');
+    }
+});
+
+
+</script>
+
+<script>
+$(document).ready(function(){
+    $(window).scroll(function(){
+        var scroll = $(window).scrollTop();
+        if (scroll > 50) {  // Adjust 50 to the desired scroll amount in pixels
+            $(".navbar").css("background-color", "#333"); // Change to your desired color
+        } else {
+            $(".navbar").css("background-color", "transparent");
+        }
+    })
+})
+</script>
+
+<!-- Correct order of script inclusion at the end of body -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,621 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+.navbar {
+    background-color: #fff; /* Default white color when not scrolled */
+    transition: background-color 0.5s ease; /* Smooth transition effect */
+}
+
+.navbar.scrolled {
+    background-color: #949494; /* Color when scrolled */
+}
+
+.header {
+    background-image: url("../images/img6.jpg");
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: background-image 1s;
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .feature-card {
+    margin-right: 15px; /* or the amount of space you want */
+    margin-left: 15px; /* or the amount of space you want */
+  }
+  .row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+}
+
+.overlay {
+    padding: 100px 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary.btn-lg {
+    margin-top: 20px;
+}
+.circle {
+    width: 60px;
+    height: 60px;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+
+.footer {
+    background: #343a40;
+}
+
+/* Enhanced Features Section Styles */
+.features-section p {
+    color: #333; /* Dark gray for better readability */
+    font-size: 1.2em; /* Slightly larger font for emphasis */
+}
+
+.feature-card {
+    border-radius: 15px;
+    overflow: hidden; /* Clip child content to rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    transform: scale(1.05); /* Slight enlargement on hover */
+    background-color: #f2f2f2; /* Lighter background color on hover */
+}
+
+.feature-icon {
+    width: 100px; /* Slightly larger icons */
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect on icons */
+}
+.collab-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.profile-images {
+    flex-basis: 40%;
+}
+
+.main-profile {
+    max-width: 100%;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+}
+
+.collab-text {
+    flex-basis: 50%;
+    padding-left: 30px;
+}
+
+.collab-text h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 12px rgba(7, 6, 6, 0.6);
+}
+
+.collab-text p {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 12px rgba(12, 10, 10, 0.6);
+}
+
+.learn-more-btn {
+    background-color: #007BFF;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.8);
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.learn-more-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0px 0px 15px rgba(0, 86, 179, 0.9);
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(40px);
+    }
+    to   { 
+        opacity: 2; 
+        transform: translateY(0);
+    }
+}
+
+.collaboration-section {
+    animation: fadeIn 1s forwards;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    .collab-content {
+        flex-direction: column-reverse; /* stack text above image */
+    }
+
+    .profile-images {
+        margin-top: 30px;
+        text-align: center;
+        flex-basis: 100%; /* take the full width */
+    }
+
+    .collab-text {
+        text-align: center;
+        padding-left: 0;
+        flex-basis: 100%; /* take the full width */
+    }
+
+    .collab-text h2 {
+        font-size: 2em; /* reduced font size for mobile */
+    }
+
+    .collab-text p {
+        font-size: 1.1em; /* reduced font size for mobile */
+    }
+}
+
+
+.how-it-works-section {
+    background-color: #f8fafc;
+    font-family: 'Arial', sans-serif;
+}
+
+.circle {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    background-color: #007BFF; /* Bootstrap primary color */
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.col-md-3:hover .circle {
+    transform: scale(1.1);
+    background-color: #0056b3; /* Darkened Bootstrap primary color */
+}
+
+.how-it-works-section h4 {
+    font-weight: bold;
+    margin-top: 15px;
+    transition: color 0.3s ease;
+}
+
+.col-md-3:hover h4 {
+    color: #007BFF; /* Bootstrap primary color */
+}
+
+.how-it-works-section p {
+    color: #777;
+}
+
+/* styles.css */
+
+.how-it-works-section {
+    background: linear-gradient(45deg, #f8fafc, #e0e5ef);
+    overflow: hidden;
+}
+
+.circle {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    background-color: #007BFF; /* Bootstrap primary color */
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.step-box:hover .circle {
+    transform: translateY(-10px);
+}
+
+.how-it-works-section h4 {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #333;
+}
+
+.how-it-works-section p {
+    color: #555;
+}
+
+@media only screen and (max-width: 768px) {
+    .circle {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* General Styles */
+.section-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* About Us Section Styles */
+.about-section .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.about-section .about-image {
+    border-radius: 10px;
+    overflow: hidden;
+    background-image: url("../images/img7.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    transition: transform 0.5s ease;
+}
+
+.about-section .about-image:hover {
+    transform: scale(1.05);
+}
+
+.about-section .about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-section .about-item h4 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #007BFF;
+}
+
+.about-section .about-item p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 768px) {
+    .about-section .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.testimonials-section {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+}
+
+.review {
+    padding: 30px;
+    border: 1px solid #eee;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    width: auto;
+    flex: 0 0 calc(33.33% - 20px); /* For three reviews, accounting for some margin */
+    margin: 10px; /* Some space around each review */
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease-in-out;
+}
+
+.reviews-slider {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+.review:hover {
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+}
+
+.review-icon {
+    font-size: 2em;
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.review-name, .review-date, .review-stars {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.review-text {
+    margin: 20px 0;
+}
+
+.reviews-slider {
+    overflow: hidden;
+}
+
+.slick-prev, .slick-next {
+    font-size: 2em;
+    color: #333;
+    z-index: 10;
+}
+
+.slick-prev {
+    left: -40px;
+}
+
+.slick-next {
+    right: -40px;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .review {
+        flex: 0 0 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Scrollbar styling (optional) */
+.reviews-slider::-webkit-scrollbar {
+    height: 10px;
+}
+
+.reviews-slider::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.reviews-slider::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.reviews-slider::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Base Styles */
+.footer {
+    transition: all 0.4s ease-in-out;
+}
+
+.footer a {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effects for links */
+.footer a:hover {
+    color: #717171; /* Golden color for hover, you can change as per your design preference */
+    text-decoration: none;
+}
+
+.footer ul {
+    list-style-type: disc;
+    padding-left: 1rem;  /* To give space for bullet points */
+}
+.footer li {
+    margin-bottom: 5px; /* Adjust as necessary */
+}
+/* Spacing between sections */
+.footer h4, .footer h6 {
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+}
+/* Animation: Fade-in effect */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.footer {
+    opacity: 0;
+    animation: fadeInUp 1s forwards 0.5s; /* Delay of 0.5s before it starts */
+}
+
+
+.social-icons a {
+    font-size: 24px;
+    margin: 0 10px;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 767px) {
+    .footer h4, .footer h6 {
+        margin-bottom: 15px;
+    }
+
+    .footer ul {
+        margin-bottom: 20px;
+    }
+
+    .footer a {
+        display: block; 
+        margin-bottom: 10px; 
+    }
+
+
+    .social-icons a {
+        margin: 0 8px;
+    }
+}
+
+.container {
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+.card {
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 20px; /* Space between cards */
+    padding: 20px; /* Spacing inside the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Slightly raise the card when hovered */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+  }
+  
+  .card-header {
+    color: #333333; /* Dark text color for contrast */
+    font-size: 1.5em; /* Larger font size for headers */
+    margin-bottom: 10px; /* Space between header and content */
+  }
+  
+  .card-content {
+    color: #555555; /* Slightly lighter text color for the content */
+  }
+  
+  .button {
+    background-color: #007bff; /* Bootstrap primary color for buttons */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Darker shade on hover for visual feedback */
+  }
+  
+  .completed {
+    text-decoration: line-through; /* Strike-through for completed tasks */
+    color: #6c757d; /* Bootstrap secondary text color for a "disabled" look */
+  }
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effect */
+}
+
+.list-group-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Slight raise and shadow on hover */
+}
+
+.list-group-item p {
+    margin-bottom: 0.5rem;
+}
+
+.badge-success {
+    color: white;
+    background-color: #28a745;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+    transition: background-color 0.3s; /* Smooth background color transition for buttons */
+}
+
+.btn-sm:hover {
+    background-color: #0056b3; /* Darken button color on hover */
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Fade in list items */
+.list-group-item {
+    animation: fadeIn 0.5s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}
